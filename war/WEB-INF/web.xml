@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<servlet>
+		<servlet-name>twitamabot</servlet-name>
+		<servlet-class>twitama.bot.TwitamabotServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>twitamabot</servlet-name>
+		<url-pattern>/twitamabot</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GetAccessToken</servlet-name>
+		<servlet-class>twitama.bot.util.GetaccesstokenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetAccessToken</servlet-name>
+		<url-pattern>/getaccesstoken</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Callback</servlet-name>
+		<servlet-class>twitama.bot.util.CallbackServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Callback</servlet-name>
+		<url-pattern>/callback</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>BOTUPDATE</servlet-name>
+		<servlet-class>twitama.bot.FriendsListUpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BOTUPDATE</servlet-name>
+		<url-pattern>/update</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CLEARCACHE</servlet-name>
+		<servlet-class>twitama.bot.util.ClearCacheServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CLEARCACHE</servlet-name>
+		<url-pattern>/cron/clearcache</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DELETEDO</servlet-name>
+		<servlet-class>twitama.bot.util.DeleteDataObjectServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DELETEDO</servlet-name>
+		<url-pattern>/admin/deletetoken</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>REGTOKEN</servlet-name>
+		<servlet-class>twitama.bot.util.RegistTokenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>REGTOKEN</servlet-name>
+		<url-pattern>/admin/registtoken</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CharacterConfig</servlet-name>
+		<servlet-class>twitama.bot.character.CharacterStatusUpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CharacterConfig</servlet-name>
+		<url-pattern>/admin/characterConfig</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DeleteCharaStatus</servlet-name>
+		<servlet-class>twitama.bot.character.DeleteCharaStatusServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteCharaStatus</servlet-name>
+		<url-pattern>/admin/deleteCharaStatus</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>OutgoingAccess</servlet-name>
+		<servlet-class>twitama.bot.access.outgoing.OutgoingAccessServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OutgoingAccess</servlet-name>
+		<url-pattern>/outgoingaccess</url-pattern>
+	</servlet-mapping>
+
+	<security-constraint>
+		<web-resource-collection>
+			<url-pattern>/cron/*</url-pattern>
+			<url-pattern>/admin/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>admin</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>

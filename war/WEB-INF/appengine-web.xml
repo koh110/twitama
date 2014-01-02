@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+  <application>twitamaserver</application>
+  <version>1</version>
+  <sessions-enabled>true</sessions-enabled>
+
+  <!--
+    By default, App Engine sends requests serially to a given web server.
+    To allow App Engine to send multiple requests in parallel specify:
+-->
+      <threadsafe>true</threadsafe>
+
+
+  <!-- Configure java.util.logging -->
+  <system-properties>
+    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+    <property name="oauth.consumerKey" value="G9Y32BrGrnw1DAn3ToIzQ" />
+    <property name="oauth.consumerSecret" value="vkh4HfLryGY5PYAOvxvGiebxg6gFQQv5T7xncGnYTs" />
+  </system-properties>
+
+</appengine-web-app>
